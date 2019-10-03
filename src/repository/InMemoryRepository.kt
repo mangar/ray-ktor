@@ -24,8 +24,7 @@ class InMemoryRepository : Repository {
 
   override suspend fun phrase(id: String): EmojiPhrase? {
 //    phrases.find { it.id.toString() == id } ? throw IllegalArgumentException("No phrase found for $id")
-
-
+    return phrases.find { it.id.toString() == id }
   }
 
   override suspend fun phrases(): List<EmojiPhrase> = phrases.toList()

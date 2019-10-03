@@ -12,3 +12,6 @@ fun Route.authentication() {
     call.respondText("Authentication...")
   }
 }
+
+
+const val API_VERSION = "/api/v1"
