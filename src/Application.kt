@@ -36,8 +36,7 @@ fun Application.module(testing: Boolean = false) {
       authentication()
       about()
 
-      phraseGET()
-      phrasesGET()
+      phrasesGET(db)
       phrasePOST(db)
     }
 }

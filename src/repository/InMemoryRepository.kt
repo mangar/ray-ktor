@@ -27,7 +27,7 @@ class InMemoryRepository : Repository {
     return phrases.find { it.id.toString() == id }
   }
 
-  override suspend fun phrases(): List<EmojiPhrase> = phrases.toList()
+  override suspend fun phrases(): ArrayList<EmojiPhrase> = phrases
 
   override suspend fun remove(phrase: EmojiPhrase) {
     if (!phrases.contains(phrase)) {

@@ -10,19 +10,15 @@ import io.ktor.routing.*
 
 
 const val PHRASE_ENDPOINT = "$API_VERSION/phrase"
-
 const val PHRASES_ENDPOINT = "$API_VERSION/phrases"
 
-//
-//
-fun Route.phraseGET() {
-  get(PHRASE_ENDPOINT) {
-    call.respondText("$PHRASE_ENDPOINT")
+fun Route.phrasesGET(db: Repository) {
+  get(PHRASES_ENDPOINT) {
+    val phrases = db.phrases()
+    call.respond(phrases.toArray())
   }
 }
 
-//
-//
 fun Route.phrasePOST(db: Repository) {
   post(PHRASE_ENDPOINT) {
     val request = call.receive<Request>()
@@ -30,16 +26,6 @@ fun Route.phrasePOST(db: Repository) {
     call.respond(phrase)
   }
 }
-
-
-//
-//
-fun Route.phrasesGET() {
-  get(PHRASES_ENDPOINT) {
-    call.respondText("$PHRASES_ENDPOINT")
-  }
-}
-
 
 
 
