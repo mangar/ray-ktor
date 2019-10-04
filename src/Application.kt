@@ -1,11 +1,13 @@
 package com.rw
 
 import com.rw.api.*
+import com.rw.model.*
 import com.rw.repository.*
 import com.rw.webapp.*
 import com.ryanharter.ktor.moshi.*
 import freemarker.cache.*
 import io.ktor.application.*
+import io.ktor.auth.*
 import io.ktor.features.*
 import io.ktor.features.DefaultHeaders
 import io.ktor.freemarker.*
@@ -35,6 +37,15 @@ fun Application.module(testing: Boolean = false) {
       templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
     }
 
+    install(Authentication) {
+      basic(name = "auth") {
+        realm = "Ktor Server"
+        validate {credentials ->
+          if (credentials.password == "${credentials.name}123") User(credentials.name) else null
+        }
+      }
+
+    }
 
     val db = InMemoryRepository()
 
