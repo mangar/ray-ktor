@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "1530bf89-c119-4f7b-a5c8-c0005bca5c3e",
+		"name": "ray-ktor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v1/phrase",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": "{\n    \"emoji\":\"👍\", \n    \"phrase\": \"ok\"\n}\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"emoji\":\"👍👌🤟\", \n    \"phrase\": \"okidoki\"\n}\n"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/phrase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"phrase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/phrases/initialLoad",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "{\n    \"emoji\":\"👍\", \n    \"phrase\": \"ok\"\n}\n",
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/api/v1/phrases/initialLoad",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"phrases",
+						"initialLoad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/phrases",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": "{\n    \"emoji\":\"👍\", \n    \"phrase\": \"ok\"\n}\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"emoji\":\"👍\", \n    \"phrase\": \"ok\"\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/phrases",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"phrases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/about",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/about",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"about"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/phrases",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": "{\n    \"emoji\":\"👍\", \n    \"phrase\": \"ok\"\n}\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"emoji\":\"👍\", \n    \"phrase\": \"ok\"\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/phrases",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"phrases"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
