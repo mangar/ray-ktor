@@ -12,14 +12,14 @@ import io.ktor.routing.*
 const val PHRASE_ENDPOINT = "$API_VERSION/phrase"
 const val PHRASES_ENDPOINT = "$API_VERSION/phrases"
 
-fun Route.phrasesGET(db: Repository) {
+fun Route.phrasesAPIGET(db: Repository) {
   get(PHRASES_ENDPOINT) {
     val phrases = db.phrases()
     call.respond(phrases.toArray())
   }
 }
 
-fun Route.phrasePOST(db: Repository) {
+fun Route.phraseAPIPOST(db: Repository) {
   post(PHRASE_ENDPOINT) {
     val request = call.receive<Request>()
     val phrase = db.add(EmojiPhrase(request.emoji, request.phrase))

@@ -4,9 +4,11 @@ import com.rw.api.*
 import com.rw.repository.*
 import com.rw.webapp.*
 import com.ryanharter.ktor.moshi.*
+import freemarker.cache.*
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.features.DefaultHeaders
+import io.ktor.freemarker.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -29,15 +31,21 @@ fun Application.module(testing: Boolean = false) {
       moshi()
     }
 
+    install(FreeMarker) {
+      templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
+    }
+
+
     val db = InMemoryRepository()
 
     routing {
       home()
       authentication()
       about()
+      phrases(db)
 
-      phrasesGET(db)
-      phrasePOST(db)
+      phrasesAPIGET(db)
+      phraseAPIPOST(db)
     }
 }
 
