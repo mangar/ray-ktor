@@ -44,6 +44,7 @@ fun Application.module(testing: Boolean = false) {
       about()
       phrases(db)
 
+      phrasesInitialLoadAPIGET(db)
       phrasesAPIGET(db)
       phraseAPIPOST(db)
     }
